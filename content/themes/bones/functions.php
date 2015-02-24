@@ -75,6 +75,7 @@ if ( ! isset( $content_width ) ) {
 // Thumbnail sizes
 add_image_size( 'bones-thumb-600', 600, 150, true );
 add_image_size( 'bones-thumb-300', 300, 100, true );
+add_image_size( 'bones-thumb-150', 150, 50, true );
 
 /*
 to add more sizes, simply copy a line from above
@@ -102,6 +103,7 @@ function bones_custom_image_sizes( $sizes ) {
     return array_merge( $sizes, array(
         'bones-thumb-600' => __('600px by 150px'),
         'bones-thumb-300' => __('300px by 100px'),
+        'bones-thumb-150' => __('150px by 50px'),
     ) );
 }
 
@@ -239,7 +241,7 @@ can replace these fonts, change it in your scss files
 and be up and running in seconds.
 */
 function bones_fonts() {
-  wp_enqueue_style('googleFonts', 'http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic');
+  wp_enqueue_style('googleFonts', 'http://fonts.googleapis.com/css?family=Lato:100,400,900,300italic|Bree+Serif');
 }
 
 add_action('wp_enqueue_scripts', 'bones_fonts');

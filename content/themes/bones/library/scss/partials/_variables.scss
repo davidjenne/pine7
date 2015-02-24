@@ -1,51 +1,73 @@
 /******************************************************************
-Site Name:
-Author:
+Site Name: Pine Hill Park 2015 Design
+Author: David S. Jenne
 
 Stylesheet: Variables
 
 Here is where we declare all our variables like colors, fonts,
-base values, and defaults. We want to make sure this file ONLY
-contains variables that way our files don't get all messy.
-No one likes a mess.
-
+base values, and defaults.
 ******************************************************************/
 
-/*********************
-COLORS
-Need help w/ choosing your colors? Try this site out:
-http://0to255.com/
-*********************/
 
-$alert-yellow:      #ebe16f;
-$alert-red:         #fbe3e4;
-$alert-green:       #e6efc2;
-$alert-blue:        #d5edf8;
+/******************************************************************
 
-$black:             #323944;
-$white:             #fff;
+Future Site Colors
 
-$light-gray:        #f8f9fa;
-$gray:              #eaedf2;
-$text-color:        #5c6b80;
-$meta-gray:         #9fa6b4;
+$color-main:				#280c05;	// deep sienna
+$color-mid:				#73240f;	// brick red
+$color-light:				#fcfcfb; 	// lightest sienna grey
+$color-accent:				#f3922a;	// orange
+$color-border:				#ccc;		// black
+$color-content-background:		#eee;	// lightest grey
+$color_background_alt:		#cfdbe8;	// light blue
+$color_background_alt2:		#e3e5cf;	// light beige
+$color_text:				#4c4a47;	// dark grey
+$color_text_alt:			#999;		// medium grey
+$color_text_alert:			#910f0f;	// bold red
+$color_text_callout:			#236DA6;	// bold blue
+******************************************************************/
 
-$tan:               #eceee5;
 
-$green:             #7dd667;
+$color-main: #280c05;   // deep sienna
+$color-mid: #73240f;	// brick red
+$color-light: #fcfcfb;   // lightest sienna grey
+$color-text: #4c4a47;
+$color-accent: #f3922a;   // orange
 
-$bones-pink:        #f01d4f;
-$blue:              #2980b9;
+$alert-yellow: #ebe16f;
+$alert-red: #fbe3e4;
+$alert-green: #e6efc2;
+$alert-blue:  #d5edf8;
 
-$link-color:        $bones-pink;
-$link-hover:        darken($link-color, 9%);
+$black: #323944;
+$white: #fff;
+$light-gray: #f8f9fa;
+$gray: #eaedf2;
+$tan: #fcf9ea;
+$green: #7dd667;
+$blue: #2980b9;
 
-$border-color:      #ccc;
+
+$link-color: $color-accent;
+$link-hover: darken($link-color, 15%);
+
+$meta-gray: #676747;
+$color-content-background: #eee;	// lightest grey
+
+$color-border:	 #000;	// black
 $disabled-gray:     #cfcfcf;
 
 
+
 /*
-Here's a great tutorial on how to
-use color variables properly:
-http://sachagreif.com/sass-color-variables/
+Here's a great tutorial on how to use color variables properly: http://sachagreif.com/sass-color-variables/
 */
+
+/******************************************************************
+
+Other Variables
+******************************************************************/
+
+$padding:	10px;
+
+$box-shadow: 0px 0px 3px #999;

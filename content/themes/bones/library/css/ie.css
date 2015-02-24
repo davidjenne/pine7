@@ -18,27 +18,110 @@ understand (what's inside the media queries). We also need to
 import the mixins file so SASS can understand the variables.
 ******************************************************************/
 /******************************************************************
-Site Name:
-Author:
+Site Name: Pine Hill Park 2015 Design
+Author: David S. Jenne
 
 Stylesheet: Variables
 
 Here is where we declare all our variables like colors, fonts,
-base values, and defaults. We want to make sure this file ONLY
-contains variables that way our files don't get all messy.
-No one likes a mess.
+base values, and defaults.
+******************************************************************/
+/******************************************************************
+
+Future Site Colors
+
+$color-main:				#280c05;	// deep sienna
+$color-mid:				#73240f;	// brick red
+$color-light:				#fcfcfb; 	// lightest sienna grey
+$color-accent:				#f3922a;	// orange
+$color-border:				#ccc;		// black
+$color-content-background:		#eee;	// lightest grey
+$color_background_alt:		#cfdbe8;	// light blue
+$color_background_alt2:		#e3e5cf;	// light beige
+$color_text:				#4c4a47;	// dark grey
+$color_text_alt:			#999;		// medium grey
+$color_text_alert:			#910f0f;	// bold red
+$color_text_callout:			#236DA6;	// bold blue
+******************************************************************/
+/*
+Here's a great tutorial on how to use color variables properly: http://sachagreif.com/sass-color-variables/
+*/
+/******************************************************************
+
+Other Variables
+******************************************************************/
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: Typography
+
+Need to import a font or set of icons for your site? Drop them in
+here or just use this to establish your typographical grid. Or not.
+Do whatever you want to...GOSH!
+
+Helpful Articles:
+http://trentwalton.com/2012/06/19/fluid-type/
+http://ia.net/blog/responsive-typography-the-basics/
+http://alistapart.com/column/responsive-typography-is-a-physical-discipline
 
 ******************************************************************/
 /*********************
-COLORS
-Need help w/ choosing your colors? Try this site out:
-http://0to255.com/
+FONT FACE (IN YOUR FACE)
 *********************/
-/*
-Here's a great tutorial on how to
-use color variables properly:
-http://sachagreif.com/sass-color-variables/
+/*  To embed your own fonts, use this syntax and place your fonts inside the
+  library/fonts folder. For more information on embedding fonts, go to:
+  http://www.fontsquirrel.com/ Be sure to remove the comment brackets.
 */
+/*  @font-face {
+      font-family: 'Font Name';
+      src: url('library/fonts/font-name.eot');
+      src: url('library/fonts/font-name.eot?#iefix') format('embedded-opentype'),
+             url('library/fonts/font-name.woff') format('woff'),
+             url('library/fonts/font-name.ttf') format('truetype'),
+             url('library/fonts/font-name.svg#font-name') format('svg');
+      font-weight: normal;
+      font-style: normal;
+  }
+*/
+/*********************
+GENERICONS
+*********************/
+@font-face {
+  font-family: 'Genericons';
+  src: url("library/genericons-regular-webfont.eot");
+  src: url("library/genericons-regular-webfont.eot?#iefix") format("embedded-opentype"), url("library/genericons-regular-webfont.woff") format("woff"), url("library/genericons-regular-webfont.ttf") format("truetype"), url("library/genericons-regular-webfont.svg#genericonsregular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+/*
+The following is based off Typebase:
+https://github.com/devinhunt/typebase.css
+I've edited it a bit, but it's a nice starting point.
+*/
+/*
+ Imported these in the functions file. Don't forget to remove it if
+ you are using fonts placed in the library/fonts area instead.
+*/
+/*
+some nice typographical defaults
+more here: http://www.newnet-soft.com/blog/csstypography
+*/
+p {
+  -ms-word-wrap: break-word;
+  word-break: break-word;
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+  -webkit-hyphenate-before: 2;
+  -webkit-hyphenate-after: 3;
+  hyphenate-lines: 3;
+  -webkit-font-feature-settings: "liga", "dlig";
+  -moz-font-feature-settings: "liga=1, dlig=1";
+  -ms-font-feature-settings: "liga", "dlig";
+  -o-font-feature-settings: "liga", "dlig";
+  font-feature-settings: "liga", "dlig"; }
+
 /******************************************************************
 Site Name:
 Author:
@@ -201,6 +284,7 @@ NAVIGATION STYLES
   /* highlight current page */
   /* end current highlighters */ }
   .nav ul {
+    background: #323944;
     margin-top: 0; }
   .nav li {
     float: left;
@@ -216,15 +300,14 @@ NAVIGATION STYLES
       has the possibility of being a mobile device.
       */ }
       .nav li a:hover, .nav li a:focus {
-        color: white;
-        text-decoration: underline; }
+        color: #fff;
+        background-color: #f3922a; }
     .nav li ul.sub-menu,
     .nav li ul.children {
       margin-top: 0;
       border: 1px solid #ccc;
       border-top: 0;
       position: absolute;
-      overflow: hidden;
       visibility: hidden;
       z-index: 8999;
       /* highlight sub-menu current page */ }
@@ -245,9 +328,12 @@ NAVIGATION STYLES
         .nav li ul.sub-menu li:last-child a,
         .nav li ul.children li:last-child a {
           border-bottom: 0; }
-    .nav li:hover ul {
+        .nav li ul.sub-menu li ul,
+        .nav li ul.children li ul {
+          top: 0;
+          left: 100%; }
+    .nav li:hover > ul {
       top: auto;
-      overflow: visible;
       visibility: visible; }
 
 /* end .nav */
@@ -255,7 +341,10 @@ NAVIGATION STYLES
 SIDEBARS & ASIDES
 *********************/
 .sidebar {
-  margin-top: 2.2em; }
+  margin-top: 0em;
+  background-color: #fcfcfb;
+  border-radius: 3px;
+  box-shadow: 0px 0px 3px #999; }
 
 .widgettitle {
   border-bottom: 2px solid #444;
@@ -309,7 +398,7 @@ be seen on the Desktop.
 
 ******************************************************************/
 .wrap {
-  width: 1040px; }
+  width: 80%; }
 
 /*
 you can call the larger styles if you want, but there's really no need
@@ -334,3 +423,5 @@ header.php file to see what they are:
 .lt-ie8 .class { ... }
 
 */
+
+/*# sourceMappingURL=ie.css.map */

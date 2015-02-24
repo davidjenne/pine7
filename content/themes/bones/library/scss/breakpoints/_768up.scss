@@ -58,7 +58,7 @@ NAVIGATION STYLES
 			*/
 			&:hover, &:focus {
 				color: $white;
-				text-decoration: underline;
+				background-color: $color-accent;
 			}
 		}
 
@@ -142,7 +142,10 @@ SIDEBARS & ASIDES
 *********************/
 
 .sidebar {
-	margin-top: 2.2em;
+	margin-top: 0em;
+	background-color: $color-light;
+	border-radius: 3px;
+	box-shadow: $box-shadow;
 }
 
 	.widgettitle {

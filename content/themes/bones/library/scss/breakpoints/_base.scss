@@ -11,6 +11,7 @@ and will be used across all viewports.
 
 ******************************************************************/
 
+
 /*********************
 GENERAL STYLES
 *********************/
@@ -19,10 +20,14 @@ body {
 	font-family: $lato;
 	font-size: 100%;
 	line-height: 1.5;
-	color: $text-color;
-	background-color: $gray;
+	color: $color-text;
+	background-color: $color-main;
   	-webkit-font-smoothing: antialiased;
   	-moz-osx-font-smoothing: grayscale;
+}
+
+article {
+	box-shadow: $box-shadow;
 }
 
 /********************
@@ -71,8 +76,20 @@ LAYOUT & GRID STYLES
 *********************/
 
 .wrap {
-	width: 96%;
+	width: 100%;
 	margin: 0 auto;
+}
+
+#inner-content{
+	background-color:$color-content-background;
+}
+
+.textwidget{
+	min-height:400px;
+}
+
+header.article-header{
+	padding-bottom: 0;
 }
 
 /*********************
@@ -109,7 +126,7 @@ H1, H2, H3, H4, H5 STYLES
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
 	text-rendering: optimizelegibility;
-	font-weight: 500;
+	font-weight: 400;
 	/*
 	if you're going to use webfonts, be sure to check your weights
 	http://css-tricks.com/watch-your-font-weight/
@@ -153,15 +170,21 @@ HEADER STYLES
 *********************/
 
 .header {
-	background-color: $black;
+	background-color: $color-main;
 }
 
 	#logo {
-		margin: 0.75em 0;
-
-		a {
-			color: $white;
-		}
+		margin: 0;
+		display: block;
+		text-indent: -9999px;
+		width: 320px;
+		height: 75px;
+		background: url(http://pine7.dev/content/themes/bones/library/images/mobile_banner.svg);
+		background-size: 320px 75px;
+		background-repeat: no-repeat;
+			a {
+				color: $white;
+			}
 	}
 
 /*********************
@@ -177,16 +200,27 @@ and more scalable.
 */
 
 .nav {
-	border-bottom: 0;
+	display: flex;
+	background: #333;
+	border-top: 2px $tan;
 	margin: 0;
 
 	li {
 
 		a {
-			display: block;
-			color: $white;
-			text-decoration: none;
-			padding: 0.75em;
+		    padding: 15px;
+		    color: white;
+		    position: relative;
+		    display: inline-block; // it's a flex child, but IE 10...
+			    &::before {
+			      content: "";
+			      position: absolute;
+			      top: 0;
+			      left: 0;
+			      margin-top: -2px;
+			      height: 2px;
+			      width: 100%;
+   			}
 
 			/*
 			remember this is for mobile ONLY, so there's no need
@@ -252,23 +286,21 @@ POSTS & CONTENT STYLES
 *********************/
 
 #content {
-	margin-top: 1.5em;
+
 }
 
 		.hentry {
-			background-color: $white;
+			background-color: $color-light;
 			border-radius: 3px;
 			margin-bottom: 1.5em;
-			border: 1px solid $border-color;
 
 			header {
 				border-bottom: 1px solid $light-gray;
-				padding: 1.5em;
+				padding: 1.5em 1.5em 0 1.5em;
 			}
 
 			footer {
 				padding: 1.5em;
-				border-top: 1px solid $light-gray;
 
 				p {
 					margin: 0;
@@ -281,11 +313,11 @@ POSTS & CONTENT STYLES
 		.page-title,
 		.entry-title {
 			margin: 0;
+			font-family:$bree;
+			font-size:2.5em;
 		}
 
 		.single-title {}
-
-		.page-title {}
 
 		.entry-title {}
 
@@ -488,6 +520,15 @@ POSTS & CONTENT STYLES
 		margin: 0;
 	}
 
+
+#inner-content {
+	padding:1.5em;
+}
+
+#inner-header {
+	background-color:$color-main;
+}
+
 /******************************************************************
 PAGE NAVI STYLES
 ******************************************************************/
@@ -537,11 +578,11 @@ PAGE NAVI STYLES
 
     .current{
     	cursor: default;
-    	color: $text-color;
+    	color: $color-text;
 
     	&:hover, &:focus {
     		background-color: $white;
-    		color: $text-color;
+    		color: $color-text;
     	}
     }
 
@@ -734,7 +775,7 @@ COMMENT STYLES
 
 	/* comment reply link */
 	.comment-reply-link {
-		@extend .blue-btn;
+		@extend .accent-btn;
 		font-size: 0.9em;
 		float: right;
 
@@ -774,7 +815,7 @@ COMMENT FORM STYLES
 		margin: 0;
 
 		a {
-			color: $text-color;
+			color: $color-text;
 		}
 	}
 
@@ -790,7 +831,7 @@ COMMENT FORM STYLES
 
 	/* comment submit button */
 	#submit {
-		@extend .blue-btn;
+		@extend .accent-btn;
 		float: right;
 		font-size: 1em;
 	}
@@ -851,7 +892,7 @@ SIDEBARS & ASIDES
 		background-color: $white;
 		padding: 1.5em;
 		text-align: center;
-		border: 1px solid $border-color;
+		border: 1px solid $color-border;
 		border-radius: 2px;
 		margin-bottom: 1.5em;
 	}
